@@ -8,6 +8,8 @@ apt-get install -y build-essential libssl-dev libffi-dev python-dev
 apt-get install -y python3
 apt-get install -y python-pip
 apt-get install -y ipython
+apt-get install -y libapache2-mod-python
+apt-get install -y libapache2-mod-python-doc
 # Paramiko dependencies
 pip install six
 pip install cryptography
@@ -33,6 +35,9 @@ rm -r /etc/apache2/sites-enabled/*
 # Copy over Apache config file for website
 cp /vagrant/extras/port-lookup-tool-apache.conf /etc/apache2/sites-available/port-lookup-tool-apache.conf
 ln -fs /etc/apache2/sites-available/port-lookup-tool-apache.conf /etc/apache2/sites-enabled/port-lookup-tool-apache.conf
+
+# Load CGI module
+a2enmod cgi
 
 # Restart Apache
 service apache2 restart
