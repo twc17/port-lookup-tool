@@ -19,7 +19,7 @@ form = cgi.FieldStorage()
 
 # Get port address from html form
 port = form.getvalue('port_address')
-usr = form.getvalue('user_name')
+usr = form.getvalue('username')
 passwd = form.getvalue('password')
 
 # Setup CSS and page title
@@ -47,7 +47,7 @@ hst, cmd = port_address(port)
 output = execute(hst, usr, passwd, cmd)
 if (output == ""):
     print("<p> I found the switch, but not the port :/ </p>")
-    print("<p> If the device is connected, you can try searching by MAC address <a href='http://136.142.3.230/mac_search.html?port_address=" + port + "'>here</a>. </p>")
+    print("<p> If the device is connected, you can try searching by MAC address <a href='http://10.10.10.15/mac_search.html?port_address=" + port + "'>here</a>. </p>")
     sys.exit(1)
 
 # Split output and get interface status (connected, notconnected, disabled, etc)

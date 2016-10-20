@@ -19,7 +19,7 @@ form = cgi.FieldStorage()
 
 # Get port address from html form
 port = form.getvalue('port_address')
-usr = form.getvalue('user_name')
+usr = form.getvalue('username')
 passwd = form.getvalue('password')
 mac = form.getvalue('mac_address')
 
