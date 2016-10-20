@@ -36,8 +36,10 @@ sudo cp /vagrant/extras/port-lookup-tool-apache.conf /etc/apache2/sites-availabl
 sudo ln -fs /etc/apache2/sites-available/port-lookup-tool-apache.conf /etc/apache2/sites-enabled/port-lookup-tool-apache.conf
 
 # Load CGI and SSL module
+# ... and rewrite mod
 sudo a2enmod cgid
 sudo a2enmod ssl
+a2enmod rewrite
 
 # Restart Apache
 sudo service apache2 restart

@@ -12,7 +12,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "ubuntu/trusty64"
   config.vm.provision :shell, path: "extras/bootstrap.sh"
-  config.vm.network :forwarded_port, guest: 80, host: 4567
+  config.vm.network "private_network", ip: "10.10.10.15"
+  #config.vm.network :forwarded_port, guest: 80, host: 8888
+  #config.vm.network :forwarded_port, guest: 443, host: 4444
   config.vm.hostname = "port-lookup-tool"
   config.vm.provider "virtualbox" do |v|
   	  v.memory = 1024
